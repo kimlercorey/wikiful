@@ -2,9 +2,9 @@
   <h1><%= "Articles Related to #{@category.name}" %></h1>
   <% @articles.each do |a| %>
     <p>
-      <div> <strong><%= link_to a.title, a %></strong> </div>
+      <div><%= link_to a.title, a, {:class => "lead"} %> </div>
       <div> <%= "#{a.content[0...100]}..." %> </div>
-      <div> published: <%= a.created_at.strftime('%b %d, %Y') %> </div>
+      <small> published: <%= a.created_at.strftime('%b %d, %Y') %> </small>
     </p>
   <% end %>
   </div>
