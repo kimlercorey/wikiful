@@ -23,7 +23,13 @@
 
 <div class="container">
     <div class="row">
-      <div class="span9"><%= yield %></div>
+      <div class="span9">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-#{name} alert-dismissible", role: "alert" %>
+        <% end %>
+
+        <%= yield %>
+       </div>
      
       <div class="span3 sidebar">
           <div class="my-wiki-site">
