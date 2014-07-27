@@ -3,7 +3,7 @@
   <% @articles.each do |a| %>
     <p>
       <div><%= link_to a.title, a, {:class => "lead"} %> </div>
-      <div> <%= "#{a.content[0...100]}..." %> </div>
+      <div> <%= Truncato.truncate(a.content, max_length: 100, count_tags: false).html_safe %> </div>
       <small> published: <%= a.created_at.strftime('%b %d, %Y') %> </small>
     </p>
   <% end %>

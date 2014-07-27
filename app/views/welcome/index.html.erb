@@ -6,7 +6,7 @@
   <hr/>
   <p class="article">
     <h3><%= link_to article.title, article, { :class => "lead"} %></h3>
-  <div class="summary"><%= truncate(article.content, length: 100) %></div>
+  <div class="summary"><%= Truncato.truncate(article.content, max_length: 100, count_tags: false).html_safe %></div>
   <small>Published on <%= article.created_at.strftime('%b %d, %Y') %></small>
   <div class="category"><% article.categories.each do |category| %>
     <%= link_to category.name, category, { :class => "label"} %>&nbsp;

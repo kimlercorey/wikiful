@@ -14,6 +14,8 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'commonjs'
+gem 'tinymce-rails', '~> 4.1.2'
+gem 'truncato', '~> 0.7.8'
 
 group :production do
   gem 'rails_12factor'

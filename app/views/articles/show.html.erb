@@ -5,5 +5,5 @@
       <%= link_to category.name, category, { :class => "label"} %>&nbsp;
      <% end %>
   </p>
-    <div><%= @article.content %></div>
+    <div><%= @article.content.html_safe %></div>
   </div>
