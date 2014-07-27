@@ -12,20 +12,30 @@
 </head>
 <body>
 
-  <div class="navbar navbar-inverse  navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "Wikiful", root_path, :class => "brand" %>
-          <div style="float: right;">Eventually log in/out and sign up links will go here</div>
-        </div>
-      </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Wikiful", root_path, :class => "brand" %>
+       <div class='session-controls' style="float: right;"> 
+         <% if current_user %>
+         <%= link_to "Log out from #{current_user.email}", logout_path, :class => 'btn btn-mini' %>
+          <% else %>
+            <div class="btn-group">
+              <%= link_to "Sign Up", signup_path, :class => "btn btn-mini btn-primary" %>
+              <%= link_to "Log In", login_path, :class => "btn btn-mini btn-primary" %>
+            </div>
+          <% end %>
+       </div>
     </div>
+  </div>
+</div>
 
 <div class="container">
     <div class="row">
       <div class="span9">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-#{name} alert-dismissible", role: "alert" %>
+
         <% end %>
 
         <%= yield %>
